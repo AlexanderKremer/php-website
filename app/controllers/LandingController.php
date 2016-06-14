@@ -59,19 +59,29 @@ class LandingController {
 
 	private function validateRegistrationForm() {
 
+		$totalErrors = 0;
+
 		// Make sure the E-mail has been provided and is valid
 		if ( $_POST['email'] == '' ) {
 			// E-Mail is invalid
 			$this->emailMessage = 'Invalid E-Mail';
+
 		}
 
 		// If the password is less than 8 characters long
 		if (strlen($_POST['password']) < 8 ) {
 			// Password is too short
 			$this->passwordMessage = 'Password must be at least 8 characters';
-
+			$totalErrors++;
 		}
 
+		// Determine if this data is valid to go into the database
+		if( $totalErrors == 0) {
+
+			// Validation passed!
+			
+			
+		}
 	}
 
 }
